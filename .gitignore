@@ -1,0 +1,17 @@
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Virtual Environment folder
+rasa-env/
+.venv/
+env/
+
+# Rasa specific build artifacts
+.rasa/
+models/
+graph.html
+
+# Local OS metadata
+.DS_Store
+Thmubs.db
