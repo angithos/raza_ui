@@ -1,26 +1,141 @@
-version: '3.1'
+version: "3.1"
+
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
+  - plan_trip
+  - provide_destination
+  - provide_origin
+  - provide_dates
+  - provide_budget
+  - provide_sustainability_preference
+  - provide_accommodation_type
+  - change_trip
+  - request_human_help
+  - restart_trip
+
+entities:
+  - destination
+  - origin
+  - budget
+  - sustainability_preference
+  - accommodation_type
+  - date
+
+slots:
+  origin:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: origin
+        conditions:
+          - active_loop: travel_form
+            requested_slot: origin
+
+      # - type: from_text
+      #   conditions:
+      #     - active_loop: travel_form
+      #       requested_slot: origin
+
+  destination:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: destination
+        conditions:
+          - active_loop: travel_form
+            requested_slot: destination
+
+      # - type: from_text
+      #   conditions:
+      #     - active_loop: travel_form
+      #       requested_slot: destination
+
+
+
+
+  budget_max:
+   type: float
+   mappings:
+      - type: from_entity
+        entity: budget
+        conditions:
+          - active_loop: travel_form
+            requested_slot: budget_max 
+
+  sustainability_preference:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: sustainability_preference
+
+  date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: date
+        conditions:
+          - active_loop: travel_form
+            requested_slot: date
+
+      # - type: from_text
+      #   conditions:
+      #     - active_loop: travel_form
+      #       requested_slot: date
+  accommodation_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: accommodation_type
+
+forms:
+  travel_form:
+    required_slots:
+      - origin
+      - destination
+      - date
+      - accommodation_type
+      - budget_max
+      - sustainability_preference
+
 responses:
   utter_greet:
-    - text: Hey! How are you?
-  utter_cheer_up:
-    - text: 'Here is something to cheer you up:'
-      image: https://i.imgur.com/nGF1K8f.jpg
-  utter_did_that_help:
-    - text: Did that help you?
-  utter_happy:
-    - text: Great, carry on!
+    - text: "Hey! How are you?"
+
   utter_goodbye:
-    - text: Bye,sleep well
+    - text: "Bye, sleep well."
+
   utter_iamabot:
-    - text: I am a bot, powered by Rasa.
+    - text: "I am a bot, powered by Rasa."
+
+  utter_ask_origin:
+    - text: "Where are you travelling from?"
+
+  utter_ask_destination:
+    - text: "Where would you like to travel?"
+
+  utter_ask_date:
+    - text: "When would you like to travel?"
+
+  utter_trip_details_collected:
+    - text: "Thanks! I have your trip details. I'll now look for suitable travel options."
+
+  utter_ask_accommodation_type:
+    - text: "What type of accommodation would you prefer? For example, hotel, hostel, eco-hotel, or apartment."
+
+  utter_ask_budget_max:
+    - text: "What is your maximum budget for accommodation per night?"
+
+  utter_ask_sustainability_preference:
+    - text: "How important is sustainability for you? You can choose high, medium, or low."
+
+actions:
+  - action_extract_trip_slots
+  - action_find_travel_options
+  - action_human_handover
+  - action_restart_trip
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

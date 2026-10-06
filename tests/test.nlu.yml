@@ -1,0 +1,441 @@
+version: "3.1"
+
+nlu:
+
+  - intent: greet
+    examples: |
+      - yoo
+      - yooo bro
+      - ay
+      - ayoo
+      - heyyo
+      - heyy there
+      - helooo
+      - hiii there
+      - hiiii
+      - sup bro
+      - wassup dude
+      - whats good
+      - hows it going
+      - hows things
+      - yo whats up
+      - hey whats up
+      - hey man
+      - hey mate
+      - hello mate
+      - hi buddy
+      - yo assistant
+      - ay assistant
+      - hey bot
+      - hello bot
+      - morninggg
+      - mornin mate
+      - good mornin
+      - good evning
+      - goood morning
+      - gud morning
+      - gud evening
+      - evening mate
+      - hallo there
+      - hallo bot
+      - moinnn
+      - moin mate
+      - servus
+      - hey can u hear me
+      - yo u there?
+      - hello are u there
+      - anyone there?
+      - hey i need help
+
+
+  - intent: goodbye
+    examples: |
+      - ok bye
+      - k bye
+      - kk bye
+      - cya
+      - cyaa
+      - c ya
+      - see ya
+      - see ya later
+      - seeya bro
+      - catch u later
+      - catch ya
+      - talk to ya later
+      - ttyl
+      - laterrr
+      - later bro
+      - im out
+      - imma go
+      - imma head out
+      - gotta bounce
+      - gotta dip
+      - gotta run
+      - i gotta go
+      - gotta go now
+      - i needa go
+      - im off
+      - im heading out
+      - alright im outta here
+      - ok im done
+      - thats all
+      - thats all thanks
+      - all good thanks
+      - cheers mate
+      - cheers bye
+      - thanks bye
+      - thx bye
+      - ty bye
+      - byeee
+      - byeeeee
+      - bai
+      - baai
+      - good nite
+      - nighty
+      - gn
+      - peace
+      - peace out
+      - see u around
+      - until next time
+
+
+  - intent: bot_challenge
+    examples: |
+      - r u a bot
+      - are u a bot lol
+      - ur a bot right?
+      - youre a bot arent u
+      - wait are u AI
+      - r u AI or what
+      - is this ai
+      - is this an ai bot
+      - are you some kinda robot
+      - robot or human
+      - bot or human
+      - human or AI
+      - am i talking to a robot
+      - am i chatting with a bot
+      - am i chatting with a real person
+      - is there a real person here
+      - is anyone actually typing this
+      - is a human answering me
+      - are you actually human
+      - are u real
+      - ur not a real person right
+      - this isnt a human is it
+      - youre not human are you
+      - who is actually replying to me
+      - whos behind the screen
+      - who am i talking to rn
+      - who am i chatting with
+      - what even are you
+      - what r u
+      - what are u exactly
+      - so ur an AI?
+      - so this is automated?
+      - this is a computer right
+      - are you like chatgpt
+      - are u basically chatgpt
+      - is this some sort of computer program
+      - ur artificial intelligence arent u
+      - tell me if ur a bot
+      - be honest are u a bot
+      - bot?
+      - AI?
+
+
+  - intent: plan_trip
+    examples: |
+      - i wanna go somewhere
+      - i wanna get away
+      - i need a getaway
+      - need a holiday
+      - i need a vacay
+      - wanna go on vacay
+      - wanna go travelling
+      - i wanna travel somewhere
+      - lets go somewhere
+      - help me go somewhere
+      - can u help plan a holiday
+      - can you sort out my holiday
+      - help me sort my trip
+      - help me sort out a trip
+      - can u plan something for me
+      - can you organise a trip
+      - can u organise my holiday
+      - i need help with travel
+      - need help planning
+      - help with my holiday pls
+      - help me plan something nice
+      - wanna plan a quick trip
+      - wanna plan a weekend away
+      - i wanna book a vacation
+      - i wanna arrange a holiday
+      - can u help me arrange a trip
+      - i need a trip sorted
+      - can you sort a vacation for me
+      - help me figure out where to go
+      - idk where to go can u help
+      - im tryna plan a holiday
+      - tryna organise a trip
+      - tryna plan a vacation
+      - i wanna make some travel plans
+      - need to make travel plans
+      - lets sort out a trip
+      - alright lets plan this trip
+      - ok help me plan a vacation
+      - so basically i wanna go on holiday
+      - yo can u help me plan a trip
+      - bro help me plan a holiday
+      - i wanna get outta here lol
+      - i need a break somewhere
+      - wanna escape for a few days
+      - help me plan a little getaway
+
+
+  - intent: provide_destination
+    examples: |
+      - i wanna go to [Paris](destination)
+      - take me to [Berlin](destination)
+      - lets go [Rome](destination)
+      - [Lisbon](destination) maybe
+      - thinking about [Madrid](destination)
+      - how about [Vienna](destination)
+      - what about [Prague](destination)
+      - id like [Amsterdam](destination)
+      - wanna visit [Dublin](destination)
+      - i wanna see [Barcelona](destination)
+      - heading to [Athens](destination)
+      - [Budapest](destination) sounds good
+      - lets do [Copenhagen](destination)
+      - i fancy [Stockholm](destination)
+      - maybe [Oslo](destination)
+      - im thinking [Helsinki](destination)
+      - wanna head over to [Milan](destination)
+      - can we do [Venice](destination)
+      - id be down for [Brussels](destination)
+      - lets hit [Warsaw](destination)
+
+      - i need to go from [Berlin](origin) to [Paris](destination)
+      - wanna get from [Munich](origin) to [Rome](destination)
+      - can u get me from [Hamburg](origin) to [Madrid](destination)
+      - im heading from [Cologne](origin) to [Amsterdam](destination)
+      - need a trip [Frankfurt](origin) to [Vienna](destination)
+      - [Berlin](origin) to [Prague](destination)
+      - from [Munich](origin), going to [Barcelona](destination)
+      - im travelling [Paris](origin) to [Lisbon](destination)
+      - wanna fly [Madrid](origin) to [Rome](destination)
+      - get me from [Vienna](origin) over to [Athens](destination)
+      - im tryna get from [Dublin](origin) to [London](destination)
+      - need to travel from [Brussels](origin) to [Berlin](destination)
+      - can i go from [Amsterdam](origin) to [Copenhagen](destination)
+      - heading from [Warsaw](origin) to [Prague](destination)
+      - travelling from [Oslo](origin) to [Stockholm](destination)
+
+      - can i go from [Berlin](origin) to [Rome](destination) on [12 June](date)
+      - i wanna fly [Munich](origin) to [Paris](destination) on [18 July](date)
+      - get me from [Hamburg](origin) to [Madrid](destination) on [25 August](date)
+      - tryna go from [Cologne](origin) to [Vienna](destination) on [3 September](date)
+      - im heading from [Frankfurt](origin) to [Amsterdam](destination) on [14 October](date)
+      - [Berlin](origin) to [Barcelona](destination) on [22 November](date)
+      - wanna travel from [Paris](origin) to [Lisbon](destination) on [5 December](date)
+      - can u book travel from [Rome](origin) to [Prague](destination) on [10 January](date)
+      - going from [Vienna](origin) to [Athens](destination) on [15 February](date)
+      - i need to get from [Madrid](origin) to [Dublin](destination) on [20 March](date)
+
+      - i wanna go [berln](destination)
+      - take me to [Pariss](destination)
+      - id like to visit [Amsterdm](destination)
+      - wanna go to [Viena](destination)
+      - lets go [Barcelna](destination)
+      - i wanna fly from [Berln](origin) to [Rome](destination)
+      - get me from [Munich](origin) to [Madird](destination)
+      - from [Franfurt](origin) to [Lisbon](destination)
+      - tryna go from [Hamburg](origin) to [Prag](destination)
+
+      - yo can u get me from [Berlin](origin) to [Rome](destination)
+      - bro i wanna go [Munich](origin) to [Barcelona](destination)
+      - whats the best way from [Paris](origin) to [Amsterdam](destination)
+      - needa get from [Frankfurt](origin) to [Vienna](destination)
+      - im off from [Berlin](origin) to [Prague](destination)
+      - wanna head from [Madrid](origin) over to [Lisbon](destination)
+
+
+  - intent: provide_budget
+    examples: |
+      - ive got [500](budget)
+      - got like [700](budget)
+      - ive got around [350](budget)
+      - i can do [800](budget)
+      - [600](budget) max
+      - [400](budget) tops
+      - [900](budget) is my limit
+      - maybe [750](budget)
+      - around [550](budget)
+      - something like [1000](budget)
+      - i got about [1200](budget)
+      - ive only got [300](budget)
+      - cant do more than [650](budget)
+      - dont go over [900](budget)
+      - keep it below [500](budget)
+      - keep it under [700](budget)
+      - no more than [450](budget)
+      - i dont wanna spend over [800](budget)
+      - dont wanna blow more than [1000](budget)
+      - max budget is [1500](budget)
+      - my limit is [600](budget)
+      - i can spend up to [850](budget)
+      - i can stretch to [1100](budget)
+      - ive got [550](budget) to work with
+      - got [400](budget) in my pocket
+      - budget wise ive got [700](budget)
+      - money wise around [900](budget)
+      - i dont have loads, maybe [500](budget)
+      - not trying to spend much, say [450](budget)
+      - wanna keep the whole thing around [650](budget)
+      - can we keep it cheap, like [350](budget)
+      - dont make it more than [750](budget)
+      - [500](budget) should be fine
+      - [1000](budget) should be enough
+      - i can afford roughly [800](budget)
+      - ive got roughly [600](budget)
+      - my spending limit is [1200](budget)
+      - i dont wanna go crazy, [700](budget) max
+      - got no more than [550](budget)
+      - [300](budget) is all i got
+      - only got [400](budget) rn
+      - i got like [900](budget) lol
+      - budget is kinda tight, [500](budget)
+      - i can only afford [350](budget)
+      - lets say [800](budget)
+
+
+  - intent: provide_dates
+    examples: |
+      - i wanna leave [12 June](date)
+      - going on [18 July](date)
+      - thinking [25 August](date)
+      - how about [3 September](date)
+      - lets do [14 October](date)
+      - im free on [22 November](date)
+      - leaving [5 December](date)
+      - travel date is [10 January](date)
+      - wanna head out [15 February](date)
+      - im planning for [20 March](date)
+      - trip starts [7 April](date)
+      - wanna go [19 May](date)
+      - leaving on [23 June](date)
+      - departure [11 July](date)
+      - i wanna set off [9 August](date)
+      - ill be travelling [4 September](date)
+
+      - can we leave [tomorrow](date)
+      - wanna go [tomorrow](date)
+      - im free [tomorrow](date)
+      - lets go [today](date)
+      - can i travel [today](date)
+      - need to leave [today](date)
+      - how about [day after tomorrow](date)
+      - i wanna go [day after tomorrow](date)
+      - leaving [in two days](date)
+      - im travelling [in three days](date)
+      - wanna leave [next Monday](date)
+      - how about [next Friday](date)
+      - lets do [next Tuesday](date)
+      - im thinking [next weekend](date)
+      - maybe [this weekend](date)
+      - can we go [this Friday](date)
+      - i wanna leave [next week](date)
+      - sometime [next month](date)
+      - im free [this weekend](date)
+      - lets go [in two weeks](date)
+
+      - wanna leave on [12 June](date) if thats cool
+      - im thinking of going [18 July](date)
+      - can we make it [25 August](date)
+      - id rather travel on [3 September](date)
+      - [14 October](date) works for me
+      - lets aim for [22 November](date)
+      - im tryna go [next Friday](date)
+      - maybe [tomorrow](date) if possible
+      - [day after tomorrow](date) should work
+      - can we do [this weekend](date)
+      - idk maybe [next week](date)
+      - anytime [next month](date)
+
+      - i wanna trvel on [12 June](date)
+      - im leaving [tomorow](date)
+      - lets go [next mondy](date)
+      - i wanna travel [this wek](date)
+      - maybe [next wekend](date)
+      - trip starts [5 Jun](date)
+      - going on [10 Jul](date)
+      - leave [tommorow](date)
+
+
+  - intent: provide_sustainability_preference
+    examples: |
+      - i wanna keep things green
+      - keep it eco friendly
+      - make it green if possible
+      - id rather travel green
+      - give me the eco option
+      - go for the greener one
+      - pick the planet friendly option
+      - i want something eco
+      - eco stuff is important to me
+      - i care about the environment
+      - i care about emissions
+      - i wanna reduce emissions
+      - id like to keep my footprint low
+      - dont wanna create loads of emissions
+      - try to keep the carbon low
+      - sustainability matters
+      - sustainability is a big deal for me
+      - being environmentally friendly matters to me
+      - i prefer sustainable travel
+      - make sustainability a priority
+      - please prioritise green options
+      - can we make this more eco friendly
+      - whats the greenest option
+      - give me something better for the planet
+      - id prefer the environmentally friendly one
+
+      - honestly i dont care about sustainability
+      - sustainability isnt really my thing
+      - not bothered about the environment
+      - dont worry about the green stuff
+      - i dont care about emissions
+      - emissions dont matter to me
+      - being green isnt important
+      - sustainability is not a priority
+      - i couldnt care less about carbon emissions
+      - dont need an eco option
+      - regular travel is fine
+      - just give me whatever is cheapest
+      - i dont mind if its not eco
+      - environmental impact isnt a concern
+      - i aint bothered about sustainability
+      - green travel? nah
+      - eco friendly isnt important
+      - dont really care tbh
+      - sustainability? meh
+      - not fussed about the environment
+
+      - id like [eco friendly travel](sustainability_preference)
+      - give me [green options](sustainability_preference)
+      - i want [low carbon travel](sustainability_preference)
+      - [sustainable travel](sustainability_preference) would be better
+      - [environmentally friendly options](sustainability_preference) please
+      - [green travel](sustainability_preference) if possible
+      - [low emissions](sustainability_preference) would be ideal
+      - i want the [most sustainable option](sustainability_preference)
+      - [eco travel](sustainability_preference) pls
+      - [planet friendly options](sustainability_preference) would be nice
+
+      - make it as [green](sustainability_preference) as possible
+      - sustainability is [very important](sustainability_preference)
+      - sustainability is [not important](sustainability_preference)
+      - i want [low carbon options](sustainability_preference)
+      - [environmentally friendly](sustainability_preference) please
+      - [eco friendly](sustainability_preference) if u can

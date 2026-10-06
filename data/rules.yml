@@ -2,6 +2,55 @@ version: "3.1"
 
 rules:
 
+- rule: Start travel form
+  steps:
+  - intent: plan_trip
+  - action: action_extract_trip_slots
+  - action: travel_form
+  - active_loop: travel_form
+
+- rule: Start travel form from provided trip details
+  steps:
+  - intent: provide_destination
+  - action: action_extract_trip_slots
+  - action: travel_form
+  - active_loop: travel_form
+
+- rule: Change trip details
+  steps:
+  - intent: change_trip
+  - action: action_extract_trip_slots  
+  - action: action_find_travel_options 
+
+- rule: Submit travel form
+  condition:
+  - active_loop: travel_form
+  steps:
+  - action: travel_form
+  - active_loop: null
+  - action: utter_trip_details_collected
+  - action: action_find_travel_options
+
+- rule: Update sustainability preference
+  steps:
+   - intent: provide_sustainability_preference
+   - action: action_extract_trip_slots 
+
+- rule: Update accommodation preference
+  steps:
+   - intent: provide_accommodation_type
+   - action: action_extract_trip_slots
+
+- rule: Request human travel advisor
+  steps:
+  - intent: request_human_help
+  - action: action_human_handover
+
+- rule: Restart trip
+  steps:
+  - intent: restart_trip
+  - action: action_restart_trip
+
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -12,6 +61,7 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-
-
-
+- rule: Respond to greeting
+  steps:
+    - intent: greet
+    - action: utter_greet

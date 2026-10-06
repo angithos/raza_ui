@@ -1,0 +1,16 @@
+.git
+.gitignore
+
+rasa-env
+streamlit-env
+
+models/*
+results/*
+__pycache__
+*.pyc
+
+.env
+
+firstoff.txt
+ref.txt
+model_graph.html

@@ -1,6 +1,7 @@
 version: "3.1"
 
 nlu:
+
   - intent: greet
     examples: |
       - hey
@@ -31,63 +32,325 @@ nlu:
       - bye bye
       - see you later
 
-  - intent: affirm
-    examples: |
-      - yes
-      - y
-      - indeed
-      - of course
-      - that sounds good
-      - correct
-
-  - intent: deny
-    examples: |
-      - no
-      - n
-      - never
-      - I don't think so
-      - don't like that
-      - no way
-      - not really
-
-  - intent: mood_great
-    examples: |
-      - perfect
-      - great
-      - amazing
-      - feeling like a king
-      - wonderful
-      - I am feeling very good
-      - I am great
-      - I am amazing
-      - I am going to save the world
-      - super stoked
-      - extremely good
-      - so so perfect
-      - so good
-      - so perfect
-
-  - intent: mood_unhappy
-    examples: |
-      - I am sad
-      - I don't feel very well
-      - I am disappointed
-      - super sad
-      - I'm so sad
-      - sad
-      - very sad
-      - unhappy
-      - not good
-      - not very good
-      - extremly sad
-      - so saad
-      - so sad
-      - depressed
-
-
   - intent: bot_challenge
     examples: |
       - are you a bot?
       - are you a human?
       - am I talking to a bot?
       - am I talking to a human?
+
+  - intent: plan_trip
+    examples: |
+      - I want to travel from [London](origin) to [Berlin](destination) on [19 May](date)
+      - I want to travel from [Paris](origin) to [Rome](destination) on [10 June](date)
+      - I want to go from [Amsterdam](origin) to [Vienna](destination) on [15 July](date)
+      - plan a trip from [Madrid](origin) to [Lisbon](destination) on [20 August](date)
+      - I'd like to travel from [Munich](origin) to [Prague](destination) on [5 September](date)
+      - book a trip from [Hamburg](origin) to [Copenhagen](destination) on [12 October](date)
+      - travel from [Zurich](origin) to [Milan](destination) on [8 November](date)
+      - go from [Brussels](origin) to [Paris](destination) on [3 December](date)
+      - I need to travel from [Cologne](origin) to [Amsterdam](destination) on [14 June](date)
+      - I want to go from [Frankfurt](origin) to [Vienna](destination) on [22 July](date)
+
+      - Can you plan my trip from [London](origin) to [Paris](destination)?
+      - Can you plan my trip from [Rome](origin) to [Berlin](destination)?
+      - Help me travel from [Madrid](origin) to [Amsterdam](destination)
+      - Help me get from [Munich](origin) to [Vienna](destination)
+      - I'd like a journey from [Hamburg](origin) to [Prague](destination)
+      - I need a trip from [Lisbon](origin) to [Madrid](destination)
+
+      - departing from [London](origin) and travelling to [Berlin](destination)
+      - leaving [Paris](origin) and going to [Rome](destination)
+      - travelling from [Amsterdam](origin) and heading to [Vienna](destination)
+      - starting in [Munich](origin) and travelling to [Prague](destination)
+
+  # - intent: start_new_trip
+  #   examples: |
+  #     - I want to start a new trip
+  #     - I want to go somewhere else
+  #     - Start a new trip
+  #     - New trip 
+  #     - lets go somewhere else 
+
+  - intent: change_trip
+    examples: |
+      - I want to change my trip
+      - I want to change my travel plans
+      - I want to change something about my trip
+      - I need to change my trip details
+      - change my trip details
+      - I want to modify my trip
+      - I want to update my trip
+      - change my travel plans
+
+      - I want to travel from [Munich](origin) instead
+      - I want to travel from [Hamburg](origin) instead
+      - I want to travel from [Cologne](origin) instead
+      - I want to go from [Munich](origin) instead
+      - I want to leave from [Munich](origin) instead
+      - change my origin to [Munich](origin)
+      - change my departure city to [Munich](origin)
+      - I want to leave from [Hamburg](origin) instead
+
+      - I want to travel to [Paris](destination) instead
+      - I want to travel to [Madrid](destination) instead
+      - I want to go to [Tokyo](destination) instead
+      - change my destination to [Paris](destination)
+      - change my destination to [Madrid](destination)
+      - I'd rather go to [Amsterdam](destination)
+      - I'd rather travel to [Rome](destination)
+
+      - change my date to [20 May](date)
+      - I want to travel on [20 May](date) instead
+      - change my travel date to [25 May](date)
+
+      - change my budget to [500](budget)
+      - I want to increase my budget to [800](budget)
+      - I want a cheaper budget of [400](budget)
+
+      - change my accommodation to [hotel](accommodation_type)
+      - I want an [apartment](accommodation_type) instead
+      - change my accommodation preference to [hostel](accommodation_type)
+
+      - change my sustainability preference to [high](sustainability_preference)
+      - I want a [high](sustainability_preference) sustainability preference instead
+
+  - intent: provide_destination
+    examples: |
+      - I want to travel to [Berlin](destination)
+      - I want to go to [London](destination)
+      - Take me to [Rome](destination)
+      - [Madrid](destination)
+      - to [Lisbon](destination)
+      - I am leaving from [Cologne](origin)
+      - I am departing from [Tokyo](origin)
+      - I'll be leaving from [Hamburg](origin)
+      - I want to leave from [Lisbon](origin) 
+      - I want to leave from [Franfurt](origin) instead.
+      - Actually, I'm leaving from [Hamburg](origin).
+      - Actually, I'm leaving to [Tokyo](destination).
+      - I want to travel from [Berlin](origin) to [Tokyo](destination)
+      - I want to travel from [Tokyo](origin) to [Berlin](destination)
+      - Take me from [Paris](origin) to [Rome](destination)
+      - Take me from [Rome](origin) to [Paris](destination)
+      - I want to fly from [Madrid](origin) to [London](destination)
+      - I want to fly from [London](origin) to [Madrid](destination)
+      - Travel from [Frankfurt](origin) to [Lisbon](destination)
+      - Travel from [Lisbon](origin) to [Frankfurt](destination)
+      - From [New Delhi](origin) to [Frankfurt](destination)
+      - From [Frankfurt](origin) to [New Delhi](destination)
+
+      - I want to travel from [Berlin](origin) to [Tokyo](destination) on [16 May](date)
+      - I want to travel from [Tokyo](origin) to [Berlin](destination) on [20 May](date)
+      - I want to travel from [Paris](origin) to [Rome](destination) on [5 June](date)
+      - I want to travel from [Rome](origin) to [Paris](destination) on [10 July](date)
+      - I am travelling from [Berlin](origin) to [Tokyo](destination) on [16 May](date)
+      - I am flying from [Paris](origin) to [Rome](destination) on [5 June](date)
+      - Travel from [Berlin](origin) to [Tokyo](destination) on [16 May](date)
+      - Fly from [Paris](origin) to [Rome](destination) on [5 June](date)
+      - From [Berlin](origin) to [Tokyo](destination) on [16 May](date)
+
+  - intent: provide_budget
+    examples: |
+      - with a budget of [700](budget)
+      - with a budget of [500](budget)
+      - with a budget of [1000](budget)
+      - with a budget of [1200](budget)
+      - my budget is [700](budget)
+      - my budget is [500](budget)
+      - I have a budget of [700](budget)
+      - I have a budget of [800](budget)
+      - I can spend [700](budget)
+      - I can spend [900](budget)
+      - I can spend up to [700](budget)
+      - my maximum budget is [700](budget)
+      - my maximum budget is [1000](budget)
+
+  - intent: provide_dates
+    examples: |
+      - I want to go on [16 March](date)
+      - I want to travel on [20 April](date)
+      - I want to travel on [20 May](date)
+      - My trip starts on [5 June](date)
+      - I want to leave on [10 July](date)
+      - I want to go on [15 August](date)
+      - I am travelling on [5 June](date)
+      - My trip starts on [5 May](date)
+      - On [5 May](date)
+      - [5 May](date)
+      - [today](date)
+      - [tomorrow](date)
+      - [day after tomorrow](date)
+      - [after two days](date)
+      - I want to travel [today](date)
+      - I want to travel [tomorrow](date)
+      - I want to travel [day after tomorrow](date)
+
+  - intent: provide_origin
+    examples: |
+      - I am leaving from [Cologne](origin)
+      - I am departing from [Hamburg](origin)
+      - I'll be leaving from [Hamburg](origin)
+      - I want to leave from [Hamburg](origin)
+      - I want to leave from [Frankfurt](origin) instead
+      - Actually, I'm leaving from [Hamburg](origin)
+      - Change my departure to [Munich](origin)
+      - I'm actually departing from [Cologne](origin)
+      - I want to depart from [Frankfurt](origin)
+
+  - intent: provide_sustainability_preference
+    examples: |
+      # HIGH sustainability preference
+      - I want the [most sustainable](sustainability_preference) option
+      - I want the [greenest](sustainability_preference) option
+      - I want [high](sustainability_preference) sustainability
+      - I want the [most eco-friendly](sustainability_preference) option
+      - sustainability is [very important](sustainability_preference) to me
+      - I care a lot about [sustainability](sustainability_preference)
+      - I want to prioritize [sustainability](sustainability_preference)
+      - I want to minimize my environmental impact
+      - I want to keep my carbon footprint as low as possible
+      - choose the option with the lowest emissions
+      - I prefer the most environmentally friendly option
+      - I want an environmentally friendly trip
+      - make sustainability my top priority
+      - prioritize the greenest options
+      - I don't mind paying more for a sustainable option
+      - I am willing to pay more to be more sustainable
+      - I want to travel as sustainably as possible
+
+      # MEDIUM sustainability preference
+      - I want a [balance between price and sustainability](sustainability_preference)
+      - I want something [reasonably sustainable](sustainability_preference)
+      - [medium](sustainability_preference) sustainability is fine
+      - I want a balance between cost and environmental impact
+      - I want a good balance between price and sustainability
+      - sustainability is somewhat important to me
+      - I care about sustainability but also about price
+      - I want sustainable options if they are reasonably priced
+      - I prefer a sustainable option as long as it is affordable
+      - I want to consider sustainability but not at any cost
+      - try to balance sustainability and price
+      - I want something eco-friendly but affordable
+      - I would prefer a greener option if the price is reasonable
+      - sustainability is important but price matters too
+      - I want a compromise between sustainability and cost
+      - consider both price and sustainability
+      - give me a reasonably sustainable option
+
+      # LOW sustainability preference
+      - I [don't care much about sustainability](sustainability_preference)
+      - sustainability is [not very important](sustainability_preference)
+      - I have a [low](sustainability_preference) sustainability preference
+      - sustainability isn't important to me
+      - I don't really care about sustainability
+      - sustainability is not a priority for me
+      - I am not concerned about the environmental impact
+      - environmental impact is not important to me
+      - I don't mind if the option is less sustainable
+      - prioritize price over sustainability
+      - I care more about price than sustainability
+      - I would rather have a cheaper option
+      - choose the cheapest option even if it is less sustainable
+      - price is more important than sustainability
+      - don't prioritize sustainability
+      - sustainability doesn't matter much to me
+      - I am not too concerned about being eco-friendly
+      - I don't want to pay extra for sustainability
+
+  - intent: provide_accommodation_type
+    examples: |
+      # Hotel
+      - I want a [hotel](accommodation_type)
+      - I'd like a [hotel](accommodation_type)
+      - book me a [hotel](accommodation_type)
+      - I prefer a [hotel](accommodation_type)
+      - find me a [hotel](accommodation_type)
+      - I want to stay in a [hotel](accommodation_type)
+      - I'm looking for a [hotel](accommodation_type)
+      - a [hotel](accommodation_type) would be good
+      - I'd rather stay in a [hotel](accommodation_type)
+
+      # Hostel
+      - I want a [hostel](accommodation_type)
+      - I'd like a [hostel](accommodation_type)
+      - book me a [hostel](accommodation_type)
+      - I prefer a [hostel](accommodation_type)
+      - find me a [hostel](accommodation_type)
+      - I want to stay in a [hostel](accommodation_type)
+      - I'm looking for a [hostel](accommodation_type)
+      - a [hostel](accommodation_type) would be good
+      - I'd rather stay in a [hostel](accommodation_type)
+
+      # Eco hotel
+      - I want an [eco hotel](accommodation_type)
+      - I'd like an [eco-friendly hotel](accommodation_type)
+      - I want a [green hotel](accommodation_type)
+      - find me an [environmentally friendly hotel](accommodation_type)
+      - I'd prefer an [eco-friendly accommodation](accommodation_type)
+      - I want a hotel with strong environmental practices
+      - find me a sustainable hotel
+      - I want an eco-friendly place to stay
+      - I'd like a sustainable accommodation
+
+      # Apartment
+      - I want an [apartment](accommodation_type)
+      - I'd like an [apartment](accommodation_type)
+      - book me an [apartment](accommodation_type)
+      - I prefer an [apartment](accommodation_type)
+      - find me an [apartment](accommodation_type)
+      - I want to stay in an [apartment](accommodation_type)
+      - I'm looking for an [apartment](accommodation_type)
+      - an [apartment](accommodation_type) would be good
+
+      # No preference
+      - I don't have a preference
+      - I have no preference for accommodation
+      - any accommodation is fine
+      - any type of accommodation is fine
+      - I don't care about the accommodation type
+      - I'm fine with any accommodation
+      - accommodation type doesn't matter
+      - I don't mind where I stay
+      - surprise me with the accommodation
+
+  - intent: request_human_help
+    examples: |
+      - I want to speak to a human
+      - I want to talk to a human
+      - can I talk to a travel advisor
+      - I need to speak to a travel advisor
+      - connect me to a travel advisor
+      - connect me with a human
+      - I need human assistance
+      - I want human assistance
+      - I need help from an agent
+      - can I speak to an agent
+      - I want to speak to an agent
+      - can you connect me with someone
+      - I need to talk to someone
+      - I want to talk to someone
+      - I need help from a person
+      - can a person help me
+      - this is too complicated
+      - I need help with my trip
+      - I need additional help
+      - I would like some assistance
+      - can I get help from a travel advisor
+
+  - intent: restart_trip
+    examples: |
+      - I want to start over
+      - start over
+      - restart the trip
+      - restart my trip
+      - I want to restart
+      - reset the trip
+      - reset everything
+      - clear my trip details
+      - forget my trip details
+      - let's start again
+      - can we start again
+      - start the form again
+      - I want to plan a new trip
+      - plan a new trip

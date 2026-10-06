@@ -1,34 +1,248 @@
+
 version: "3.1"
 
 stories:
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  # --------------------------------------------------
+  # 1. Normal trip planning
+  # --------------------------------------------------
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - story: Complete trip planning
+    steps:
 
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
-  
+      - intent: plan_trip
+      - action: action_extract_trip_slots
+      - action: travel_form
+      - active_loop: travel_form
+
+      - slot_was_set:
+          - origin: Berlin
+          - destination: Tokyo
+
+      - intent: provide_dates
+      - action: travel_form
+      - slot_was_set:
+          - date: 16 May
+
+      - intent: provide_accommodation_type
+      - action: travel_form
+      - slot_was_set:
+          - accommodation_type: eco-hotel
+
+      - intent: provide_budget
+      - action: travel_form
+      - slot_was_set:
+          - budget_max: 100
+
+      - intent: provide_sustainability_preference
+      - action: travel_form
+      - slot_was_set:
+          - sustainability_preference: high
+
+      - active_loop: null
+
+      - action: utter_trip_details_collected
+      - action: action_find_travel_options
+
+
+  # --------------------------------------------------
+  # 2. Trip planning with different preferences
+  # --------------------------------------------------
+
+  - story: Budget focused trip
+    steps:
+
+      - intent: plan_trip
+      - action: action_extract_trip_slots
+      - action: travel_form
+      - active_loop: travel_form
+
+      - slot_was_set:
+          - origin: Berlin
+          - destination: Tokyo
+
+      - intent: provide_dates
+      - action: travel_form
+      - slot_was_set:
+          - date: 20 May
+
+      - intent: provide_accommodation_type
+      - action: travel_form
+      - slot_was_set:
+          - accommodation_type: apartment
+
+      - intent: provide_budget
+      - action: travel_form
+      - slot_was_set:
+          - budget_max: 200
+
+      - intent: provide_sustainability_preference
+      - action: travel_form
+      - slot_was_set:
+          - sustainability_preference: low
+
+      - active_loop: null
+
+      - action: utter_trip_details_collected
+      - action: action_find_travel_options
+
+
+  # --------------------------------------------------
+  # 3. Change trip details
+  # --------------------------------------------------
+
+  - story: Change destination after planning
+    steps:
+
+      - intent: plan_trip
+      - action: action_extract_trip_slots
+      - action: travel_form
+      - active_loop: travel_form
+
+      - slot_was_set:
+          - origin: Berlin
+          - destination: Tokyo
+
+      - intent: provide_dates
+      - action: travel_form
+      - slot_was_set:
+          - date: 16 May
+
+      - intent: provide_accommodation_type
+      - action: travel_form
+      - slot_was_set:
+          - accommodation_type: hotel
+
+      - intent: provide_budget
+      - action: travel_form
+      - slot_was_set:
+          - budget_max: 100
+
+      - intent: provide_sustainability_preference
+      - action: travel_form
+      - slot_was_set:
+          - sustainability_preference: medium
+
+      - active_loop: null
+
+      - action: utter_trip_details_collected
+      - action: action_find_travel_options
+
+      - intent: change_trip
+      - action: action_extract_trip_slots
+      - action: action_find_travel_options
+
+
+  # --------------------------------------------------
+  # 4. Human handover
+  # --------------------------------------------------
+
+  - story: Request human travel advisor
+    steps:
+
+      - intent: plan_trip
+      - action: action_extract_trip_slots
+      - action: travel_form
+      - active_loop: travel_form
+
+      - slot_was_set:
+          - origin: Berlin
+          - destination: Tokyo
+
+      - intent: provide_dates
+      - action: travel_form
+      - slot_was_set:
+          - date: 16 May
+
+      - intent: provide_accommodation_type
+      - action: travel_form
+      - slot_was_set:
+          - accommodation_type: eco-hotel
+
+      - intent: provide_budget
+      - action: travel_form
+      - slot_was_set:
+          - budget_max: 100
+
+      - intent: provide_sustainability_preference
+      - action: travel_form
+      - slot_was_set:
+          - sustainability_preference: high
+
+      - intent: request_human_help
+      - action: action_human_handover
+      - active_loop: null
+
+
+  # --------------------------------------------------
+  # 5. Restart trip
+  # --------------------------------------------------
+
+  - story: Restart trip
+    steps:
+
+      - intent: plan_trip
+      - action: action_extract_trip_slots
+      - action: travel_form
+      - active_loop: travel_form
+
+      - slot_was_set:
+          - origin: Berlin
+          - destination: Tokyo
+
+      - intent: restart_trip
+      - action: action_restart_trip
+      - active_loop: travel_form
+
+      - slot_was_set:
+          - origin: null
+          - destination: null
+          - date: null
+          - budget_max: null
+          - accommodation_type: null
+          - sustainability_preference: null
+
+
+  # --------------------------------------------------
+  # 6. Unsupported destination
+  # --------------------------------------------------
+
+  - story: Unsupported destination
+    steps:
+
+      - intent: plan_trip
+      - action: action_extract_trip_slots
+      - action: travel_form
+      - active_loop: travel_form
+
+      - slot_was_set:
+          - origin: Berlin
+          - destination: London
+
+      - intent: provide_dates
+      - action: travel_form
+      - slot_was_set:
+          - date: 16 May
+
+      - intent: provide_accommodation_type
+      - action: travel_form
+      - slot_was_set:
+          - accommodation_type: hotel
+
+      - intent: provide_budget
+      - action: travel_form
+      - slot_was_set:
+          - budget_max: 100
+
+      - intent: provide_sustainability_preference
+      - action: travel_form
+      - slot_was_set:
+          - sustainability_preference: high
+
+      - active_loop: null
+
+      - action: utter_trip_details_collected
+      - action: action_find_travel_options
 
 
 
